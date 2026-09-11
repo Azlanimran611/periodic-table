@@ -5,92 +5,90 @@
 }
 
 body {
-    padding: 20px 10px;
+    padding: 1vw;
     background-color: #ffffff;
+    font-family: "Times New Roman", Times, serif;
 }
 
 h1 {
     text-align: center;
-    font-family: "Times New Roman", Times, serif;
     font-weight: bold;
-    font-size: 2rem;
-    margin-bottom: 25px;
+    font-size: clamp(1.2rem, 3vw, 2.5rem);
+    margin: 15px 0 25px 0;
 }
 
-/* Horizontal scroll wrapper for mobile & tablet screens */
-.table-wrapper {
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    padding-bottom: 15px;
-}
-
-/* Container width that ensures cells remain readable */
+/* Entire table scales fluidly with screen width without any fixed minimum */
 .table-container {
-    min-width: 1100px;
-    max-width: 1350px;
+    width: 100%;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
-/* Each row contains 18 total flex units */
+/* Each row uses proportional flex units */
 .row {
     display: flex;
     width: 100%;
-    height: 32px;
+    height: clamp(18px, 2.4vw, 34px); /* Dynamic height for mobile vs desktop */
 }
 
-/* Standard element cell (1 column unit) */
+/* Standard element box */
 .border {
     border: 1px solid black;
-    height: 32px;
+    height: 100%;
     flex: 1;
-    border-radius: 5px;
+    min-width: 0; /* Allows boxes to shrink on mobile */
+    border-radius: 3px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "Times New Roman", Times, serif;
-    font-size: 14px;
+    font-size: clamp(6px, 1vw, 14px); /* Fluid font size: scales down cleanly on mobile */
     color: #000000;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .border sup {
-    font-size: 10px;
+    font-size: 0.65em;
     vertical-align: super;
 }
 
-/* Large gap in Row 1 (spans 16 column units) */
+/* Large gap in Row 1 (16 flex units) */
 .bord {
     border: 1px solid black;
-    height: 32px;
+    height: 100%;
     flex: 16;
-    border-radius: 5px;
+    min-width: 0;
+    border-radius: 3px;
 }
 
-/* Medium gap in Rows 2 & 3 (spans 10 column units) */
+/* Medium gap in Rows 2 & 3 (10 flex units) */
 .bor {
     border: 1px solid black;
-    height: 32px;
+    height: 100%;
     flex: 10;
-    border-radius: 5px;
+    min-width: 0;
+    border-radius: 3px;
 }
 
-/* Spacer separating main table from Lanthanides/Actinides */
+/* Spacer separating main table and Lanthanides/Actinides */
 .spacer {
-    height: 35px;
+    height: clamp(12px, 2.5vw, 35px);
 }
 
 /* Lanthanide outer border spacers */
 .borde {
     border: 1px solid black;
-    height: 32px;
+    height: 100%;
     flex: 1;
+    min-width: 0;
     border-bottom: none;
 }
 
 /* Actinide outer border spacers */
 .boor {
     border: 1px solid black;
-    height: 32px;
+    height: 100%;
     flex: 1;
+    min-width: 0;
     border-top: none;
 }
