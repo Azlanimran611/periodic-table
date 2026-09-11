@@ -1,30 +1,89 @@
-.border{
-    border: 1px solid black;
-    height: 30px;
-    width: 70px;
-    border-radius: 5px;    
-}
-.bord{
-    border: 1px solid black;
-    height: 30px;
-    width: 1160px;
-    border-radius: 5px;
-}
-.bor{
-    border: 1px solid black;
-    height: 30px;
-    width: 724px;
-    border-radius: 5px;
-    
-}
-.borde{
-    border: 1px solid black;
-    width: 30px;
-    border-bottom: none;
+* {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-.boor{
-    border: 1px solid black;
-    width: 30px;
-    border-top: none;
 
-}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: #f8fafc;
+      color: #1e293b;
+      padding: 20px 10px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: clamp(1.4rem, 4vw, 2.2rem);
+    }
+
+    /* Scrollable wrapper so mobile users can smoothly pan horizontally */
+    .table-container {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 20px;
+    }
+
+    /* 18-column CSS Grid */
+    .periodic-table {
+      display: grid;
+      grid-template-columns: repeat(18, minmax(42px, 1fr));
+      gap: 3px;
+      max-width: 1200px;
+      min-width: 780px; /* Ensures cells stay legible even on small screens */
+      margin: 0 auto;
+    }
+
+    /* Element cell styling */
+    .element {
+      aspect-ratio: 1 / 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(0, 0, 0, 0.25);
+      border-radius: 4px;
+      font-size: 13px;
+      font-weight: 600;
+      text-align: center;
+      user-select: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      cursor: default;
+    }
+
+    .element:hover {
+      transform: scale(1.1);
+      z-index: 5;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .element sup {
+      font-size: 9px;
+      font-weight: normal;
+      margin-bottom: 2px;
+    }
+
+    /* Spacer between main table and Lanthanides / Actinides */
+    .gap-row {
+      grid-column: 1 / -1;
+      height: 18px;
+    }
+
+    /* Category Background Colors */
+    .reactive-nonmetal { background-color: #fa8071; }
+    .noble-gas         { background-color: #6395ec; color: #fff; }
+    .alkali-metal      { background-color: #da70d5; }
+    .alkaline-earth    { background-color: #7c68ee; color: #fff; }
+    .metalloid         { background-color: #a0522c; color: #fff; }
+    .halogen           { background-color: #daa521; }
+    .post-transition   { background-color: #2e8a57; color: #fff; }
+    .transition-metal  { background-color: #fed602; }
+    .lanthanide-act    { background-color: #ffb7c2; }
+    .unknown           { background-color: #ffffff; }
+
+    /* Key Column Placements for gaps */
+    .c-18 { grid-column: 18; }
+    .c-13 { grid-column: 13; }
+    .c-3  { grid-column: 3; }
+    .c-4  { grid-column: 4; }
